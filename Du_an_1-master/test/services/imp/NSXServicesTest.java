@@ -46,11 +46,9 @@ public class NSXServicesTest {
     public void testGetAll() {
         System.out.println("getAll");
         NSXServices instance = new NSXServices();
-        List<NSX> expResult = null;
+        List<NSX> expResult = instance.getAll();
         List<NSX> result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,13 +57,11 @@ public class NSXServicesTest {
     @Test
     public void testAdd() {
         System.out.println("Add");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(0, "Gucci");
         NSXServices instance = new NSXServices();
-        String expResult = "";
+        String expResult = instance.Add(x);
         String result = instance.Add(x);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,14 +70,12 @@ public class NSXServicesTest {
     @Test
     public void testUpdate() {
         System.out.println("Update");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(0, "Gucci");
         int id = 0;
         NSXServices instance = new NSXServices();
-        String expResult = "";
+        String expResult = instance.Update(x, id);
         String result = instance.Update(x, id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,11 +86,9 @@ public class NSXServicesTest {
         System.out.println("Delete");
         int id = 0;
         NSXServices instance = new NSXServices();
-        String expResult = "";
+        String expResult = instance.Delete(id);
         String result = instance.Delete(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,11 +99,9 @@ public class NSXServicesTest {
         System.out.println("getbyid");
         int id = 0;
         NSXServices instance = new NSXServices();
-        NSX expResult = null;
+        NSX expResult = instance.getbyid(id);
         NSX result = instance.getbyid(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

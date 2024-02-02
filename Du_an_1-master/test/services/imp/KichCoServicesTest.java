@@ -46,11 +46,9 @@ public class KichCoServicesTest {
     public void testGetAll() {
         System.out.println("getAll");
         KichCoServices instance = new KichCoServices();
-        List<KichCo> expResult = null;
+        List<KichCo> expResult = instance.getAll();
         List<KichCo> result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,13 +57,11 @@ public class KichCoServicesTest {
     @Test
     public void testAdd() {
         System.out.println("Add");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "XL");
         KichCoServices instance = new KichCoServices();
-        String expResult = "";
+        String expResult = instance.Add(x);
         String result = instance.Add(x);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,14 +70,12 @@ public class KichCoServicesTest {
     @Test
     public void testUpdate() {
         System.out.println("Update");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "XL");
         int id = 0;
         KichCoServices instance = new KichCoServices();
-        String expResult = "";
+        String expResult = instance.Update(x, id);
         String result = instance.Update(x, id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,11 +86,9 @@ public class KichCoServicesTest {
         System.out.println("Delete");
         int id = 0;
         KichCoServices instance = new KichCoServices();
-        String expResult = "";
+        String expResult = instance.Delete(id);
         String result = instance.Delete(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,11 +99,9 @@ public class KichCoServicesTest {
         System.out.println("getbyid");
         int id = 0;
         KichCoServices instance = new KichCoServices();
-        KichCo expResult = null;
+        KichCo expResult = instance.getbyid(id);
         KichCo result = instance.getbyid(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

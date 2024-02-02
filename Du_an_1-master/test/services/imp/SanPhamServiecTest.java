@@ -46,11 +46,9 @@ public class SanPhamServiecTest {
     public void testGetListSanPham() {
         System.out.println("getListSanPham");
         SanPhamServiec instance = new SanPhamServiec();
-        List<SanPhamViewModel> expResult = null;
+        List<SanPhamViewModel> expResult = instance.getListSanPham();
         List<SanPhamViewModel> result = instance.getListSanPham();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,75 +56,48 @@ public class SanPhamServiecTest {
      */
     @Test
     public void testUpdateSoLuongSP() {
-        System.out.println("updateSoLuongSP");
-        String Masp = "";
-        int SoLuong = 0;
+        String Masp = "SP120";
+        int SoLuong = 10;
         SanPhamServiec instance = new SanPhamServiec();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.updateSoLuongSP(Masp, SoLuong);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getIdSanPham method, of class SanPhamServiec.
-     */
     @Test
     public void testGetIdSanPham() {
-        System.out.println("getIdSanPham");
-        String MaSP = "";
+        String MaSP = "SP001";
         SanPhamServiec instance = new SanPhamServiec();
-        Integer expResult = null;
+        Integer expResult = 1;
         Integer result = instance.getIdSanPham(MaSP);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of seachSanPham method, of class SanPhamServiec.
-     */
+    
     @Test
     public void testSeachSanPham() {
-        System.out.println("seachSanPham");
-        String Ten = "";
+        String Ten = "Áo khoác nam";
         SanPhamServiec instance = new SanPhamServiec();
-        List<SanPham> expResult = null;
+        List<SanPham> expResult = instance.seachSanPham(Ten);
         List<SanPham> result = instance.seachSanPham(Ten);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of seachBarCodeS method, of class SanPhamServiec.
-     */
+    
     @Test
     public void testSeachBarCodeS() {
-        System.out.println("seachBarCodeS");
-        String barcode = "";
+        String barcode = "887902568655";
         SanPhamServiec instance = new SanPhamServiec();
-        List<SanPham> expResult = null;
+        List<SanPham> expResult = instance.seachBarCodeS(barcode);
         List<SanPham> result = instance.seachBarCodeS(barcode);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of locTheoDanhMucSP method, of class SanPhamServiec.
-     */
     @Test
     public void testLocTheoDanhMucSP() {
-        System.out.println("locTheoDanhMucSP");
-        String TenDanhMuc = "";
+        String TenDanhMuc = "Áo khoác";
         SanPhamServiec instance = new SanPhamServiec();
-        List<SanPhamViewModel> expResult = null;
+        List<SanPhamViewModel> expResult = instance.locTheoDanhMucSP(TenDanhMuc);
         List<SanPhamViewModel> result = instance.locTheoDanhMucSP(TenDanhMuc);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
