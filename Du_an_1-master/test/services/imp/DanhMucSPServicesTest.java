@@ -46,11 +46,9 @@ public class DanhMucSPServicesTest {
     public void testGetAll() {
         System.out.println("getAll");
         DanhMucSPServices instance = new DanhMucSPServices();
-        List<DanhMucSP> expResult = null;
+        List<DanhMucSP> expResult = instance.getAll();
         List<DanhMucSP> result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,29 +57,22 @@ public class DanhMucSPServicesTest {
     @Test
     public void testAdd() {
         System.out.println("Add");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "Ao khoac");
         DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = "";
+        String expResult = instance.Add(x);
         String result = instance.Add(x);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of Update method, of class DanhMucSPServices.
-     */
+    
     @Test
     public void testUpdate() {
         System.out.println("Update");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "Ao khoac");
         int id = 0;
         DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = "";
+        String expResult = instance.Update(x, id);
         String result = instance.Update(x, id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,11 +83,9 @@ public class DanhMucSPServicesTest {
         System.out.println("Delete");
         int id = 0;
         DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = "";
+        String expResult = instance.Delete(id);
         String result = instance.Delete(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,11 +96,9 @@ public class DanhMucSPServicesTest {
         System.out.println("getbyid");
         int id = 0;
         DanhMucSPServices instance = new DanhMucSPServices();
-        DanhMucSP expResult = null;
+        DanhMucSP expResult = instance.getbyid(id);
         DanhMucSP result = instance.getbyid(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

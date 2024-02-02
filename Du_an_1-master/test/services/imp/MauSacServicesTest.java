@@ -46,57 +46,40 @@ public class MauSacServicesTest {
     public void testGetAll() {
         System.out.println("getAll");
         MauSacServices instance = new MauSacServices();
-        List<MauSac> expResult = null;
+        List<MauSac> expResult = instance.getAll();
         List<MauSac> result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Add method, of class MauSacServices.
-     */
     @Test
     public void testAdd() {
         System.out.println("Add");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "Xanh");
         MauSacServices instance = new MauSacServices();
-        String expResult = "";
+        String expResult = instance.Add(x);
         String result = instance.Add(x);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Update method, of class MauSacServices.
-     */
     @Test
     public void testUpdate() {
         System.out.println("Update");
-        Objecttt x = null;
+        Objecttt x = new Objecttt(1, "Xanh");
         int id = 0;
         MauSacServices instance = new MauSacServices();
-        String expResult = "";
+        String expResult = instance.Update(x, id);
         String result = instance.Update(x, id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Delete method, of class MauSacServices.
-     */
     @Test
     public void testDelete() {
         System.out.println("Delete");
-        int id = 0;
+        int id = 1;
         MauSacServices instance = new MauSacServices();
-        String expResult = "";
+        String expResult = instance.Delete(id);
         String result = instance.Delete(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -105,13 +88,11 @@ public class MauSacServicesTest {
     @Test
     public void testGetbyid() {
         System.out.println("getbyid");
-        int id = 0;
+        int id = 1;
         MauSacServices instance = new MauSacServices();
-        MauSac expResult = null;
+        MauSac expResult = instance.getbyid(id);
         MauSac result = instance.getbyid(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
