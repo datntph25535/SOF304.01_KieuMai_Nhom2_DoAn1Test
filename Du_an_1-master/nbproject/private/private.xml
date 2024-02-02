@@ -3,13 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Banhang.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Khachhang.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Sanpham.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Thongke.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/KhachHangForm.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Dashboard.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Nhanvien.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/services/imp/khahangsvImplTest.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/views/frm_Khachhang.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/services/imp/UsersServiceTest.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/khahangsvImpl.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/UsersService.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/views/KhachHangForm.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/application/main.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/repositorys/imp/KhachHangRPImpl.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/HoaDonServiec.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/UserServiec.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/services/imp/UserServiecTest.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/models/ChiTietSP.java</file>
+            <file>file:/D:/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/KichCoServices.java</file>
         </group>
     </open-files>
 </project-private>
