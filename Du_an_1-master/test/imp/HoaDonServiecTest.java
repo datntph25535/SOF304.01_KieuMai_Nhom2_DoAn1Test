@@ -47,6 +47,18 @@ public class HoaDonServiecTest {
         assertEquals(expected, result);
     }
 
+     @Test
+    public void testSaveHDCT() {    
+        HoaDonCHiTietViewModel hoaDonChiTiet = new HoaDonCHiTietViewModel();
+        hoaDonChiTiet.setSoluong(10);
+        hoaDonChiTiet.setDonGia(100.0);
+        String maSP = "SP1";
+        String maHD = "HD002";
+        HoaDonServiec hoaDonService = new HoaDonServiec();
+        Integer expected = 1;
+        Integer result = hoaDonService.saveHDCT(hoaDonChiTiet, maSP, maHD);
+        assertEquals("Kết quả không khớp với giá trị mong đợi", expected, result);
+    
 
     @Test
     public void testThanhToanHD() {
