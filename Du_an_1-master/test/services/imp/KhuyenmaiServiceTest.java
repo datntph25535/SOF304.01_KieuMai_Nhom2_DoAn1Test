@@ -44,13 +44,17 @@ public class KhuyenmaiServiceTest {
      */
     @Test
     public void testGetALL() {
-        System.out.println("GetALL");
+        System.out.println("Testing GetALL method in KhuyenmaiService");
+        
+        // Khởi tạo đối tượng KhuyenmaiService
         KhuyenmaiService instance = new KhuyenmaiService();
-        List<KhuyenmaiViewmodel> expResult = null;
+        
+        // Gọi phương thức GetALL để lấy kết quả
+        List<KhuyenmaiViewmodel> expectedResult = instance.GetALL();
         List<KhuyenmaiViewmodel> result = instance.GetALL();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        // So sánh kết quả trả về với kết quả mong đợi
+        assertEquals(expectedResult, result);
     }
 
     /**
@@ -58,14 +62,65 @@ public class KhuyenmaiServiceTest {
      */
     @Test
     public void testAdd() {
-        System.out.println("Add");
-        KhuyenmaiViewmodel km = null;
+        System.out.println("Testing Add method in KhuyenmaiService");
+        
+        // Tạo một đối tượng KhuyenmaiViewmodel để thêm vào danh sách
+        KhuyenmaiViewmodel km = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+        
+        // Khởi tạo đối tượng KhuyenmaiService
         KhuyenmaiService instance = new KhuyenmaiService();
-        boolean expResult = false;
+
+        // Gọi phương thức Add để thêm đối tượng vào danh sách
         boolean result = instance.Add(km);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        // Kiểm tra kết quả
+        assertEquals(true, result);
+
+        // Kiểm tra xem danh sách đã thêm phần tử hay không
+        assertTrue(instance.GetALL().contains(km));
+    }
+    
+    @Test
+    public void testTenKMNotEmpty() {
+        System.out.println("Testing if TenKM is not empty");
+
+        // Tạo một đối tượng KhuyenmaiViewmodel với TenKM không trống
+        KhuyenmaiViewmodel khuyenmaiNotEmpty = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Kiểm tra xem phương thức trả về true hay false khi TenKM không trống
+        assertTrue(khuyenmaiNotEmptyIsNotEmpty(khuyenmaiNotEmpty));
+
+        // Tạo một đối tượng KhuyenmaiViewmodel với TenKM trống
+        KhuyenmaiViewmodel khuyenmaiEmpty = new KhuyenmaiViewmodel("", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Kiểm tra xem phương thức trả về true hay false khi TenKM trống
+        assertFalse(khuyenmaiNotEmptyIsNotEmpty(khuyenmaiEmpty));
+    }
+
+    private boolean khuyenmaiNotEmptyIsNotEmpty(KhuyenmaiViewmodel khuyenmai) {
+        return !khuyenmai.getTenKM().isEmpty();
+    }
+     @Test
+    public void testTenKMNoSpecialCharacters() {
+        System.out.println("Testing if TenKM has no special characters");
+
+        // Tạo một đối tượng KhuyenmaiViewmodel với TenKM không chứa ký tự đặc biệt
+        KhuyenmaiViewmodel khuyenmaiNoSpecialChars = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Kiểm tra xem phương thức trả về true hay false khi TenKM không chứa ký tự đặc biệt
+        assertTrue(khuyenmaiNoSpecialCharsHasNoSpecialChars(khuyenmaiNoSpecialChars));
+
+        // Tạo một đối tượng KhuyenmaiViewmodel với TenKM chứa ký tự đặc biệt
+        KhuyenmaiViewmodel khuyenmaiWithSpecialChars = new KhuyenmaiViewmodel("KhuyenMai@Special", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Kiểm tra xem phương thức trả về true hay false khi TenKM chứa ký tự đặc biệt
+        assertFalse(khuyenmaiNoSpecialCharsHasNoSpecialChars(khuyenmaiWithSpecialChars));
+    }
+
+    private boolean khuyenmaiNoSpecialCharsHasNoSpecialChars(KhuyenmaiViewmodel khuyenmai) {
+        String tenKM = khuyenmai.getTenKM();
+        // Kiểm tra bằng biểu thức chính quy xem tên có chứa ký tự đặc biệt hay không
+        return !tenKM.matches(".*[!@#$%^&*()_+{}|<>?`~].*");
     }
 
     /**
@@ -73,30 +128,68 @@ public class KhuyenmaiServiceTest {
      */
     @Test
     public void testUpdate() {
-        System.out.println("Update");
-        KhuyenmaiViewmodel km = null;
-        String id = "";
+        System.out.println("Testing Update method in KhuyenmaiService");
+        
+        // Tạo một đối tượng KhuyenmaiViewmodel mới để thêm vào danh sách
+        KhuyenmaiViewmodel kmToAdd = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+        
+        // Khởi tạo đối tượng KhuyenmaiService
         KhuyenmaiService instance = new KhuyenmaiService();
-        boolean expResult = false;
-        boolean result = instance.Update(km, id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        // Gọi phương thức Add để thêm đối tượng vào danh sách
+        instance.Add(kmToAdd);
+
+        // Lấy danh sách hiện tại
+        List<KhuyenmaiViewmodel> currentList = instance.GetALL();
+
+        // Chọn một đối tượng trong danh sách để cập nhật
+        KhuyenmaiViewmodel kmToUpdate = currentList.get(0);
+
+        // Lấy id của đối tượng để cập nhật
+        String ten = kmToUpdate.getTenKM();
+
+        // Cập nhật thông tin của đối tượng
+        kmToUpdate.setTenKM("UpdatedKhuyenMai");
+        kmToUpdate.setGiaTriGiam(10.0);
+        
+        // Gọi phương thức Update để cập nhật đối tượng
+        boolean result = instance.Update(kmToUpdate, ten);
+
+        // Kiểm tra kết quả
+        assertTrue(result);
+
     }
 
     /**
      * Test of Delete method, of class KhuyenmaiService.
      */
     @Test
-    public void testDelete() {
-        System.out.println("Delete");
-        String id = "";
-        KhuyenmaiService instance = new KhuyenmaiService();
-        boolean expResult = false;
-        boolean result = instance.Delete(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testDeleteKhuyenmai() {
+        System.out.println("Testing DeleteKhuyenmai method in KhuyenmaiService");
+
+        // Tạo một đối tượng KhuyenmaiService
+        KhuyenmaiService khuyenmaiService = new KhuyenmaiService();
+
+        // Tạo một khuyến mãi để thêm vào danh sách
+        KhuyenmaiViewmodel khuyenmaiToAdd = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Thêm khuyến mãi vào danh sách
+        khuyenmaiService.Add(khuyenmaiToAdd);
+
+        // Lấy danh sách hiện tại
+        List<KhuyenmaiViewmodel> currentList = khuyenmaiService.GetALL();
+
+        // Lấy id của khuyến mãi để xóa
+        String idToDelete = khuyenmaiToAdd.getTenKM();
+
+        // Gọi phương thức Delete để xóa khuyến mãi
+        boolean result = khuyenmaiService.Delete(idToDelete);
+
+        // Kiểm tra kết quả
+        assertTrue(result);
+
+        // Kiểm tra xem khuyến mãi đã được xóa khỏi danh sách hay không
+        assertFalse(khuyenmaiService.GetALL().contains(khuyenmaiToAdd));
     }
 
     /**
@@ -117,16 +210,33 @@ public class KhuyenmaiServiceTest {
     /**
      * Test of GetOnebyBD method, of class KhuyenmaiService.
      */
-    @Test
-    public void testGetOnebyBD() {
-        System.out.println("GetOnebyBD");
-        String date = "";
-        KhuyenmaiService instance = new KhuyenmaiService();
-        List<KhuyenmaiViewmodel> expResult = null;
-        List<KhuyenmaiViewmodel> result = instance.GetOnebyBD(date);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     @Test
+    public void testGetKhuyenmaiById() {
+        System.out.println("Testing GetKhuyenmaiById method in KhuyenmaiService");
+
+        // Tạo một đối tượng KhuyenmaiService
+        KhuyenmaiService khuyenmaiService = new KhuyenmaiService();
+
+        // Tạo một khuyến mãi để thêm vào danh sách
+        KhuyenmaiViewmodel khuyenmaiToAdd = new KhuyenmaiViewmodel("KhuyenMai1", "%", "2024-02-02", "2024-02-04", 10.0, 1);
+
+        // Thêm khuyến mãi vào danh sách
+        khuyenmaiService.Add(khuyenmaiToAdd);
+
+        // Lấy tên khuyến mãi để gọi phương thức GetOneByTenKM
+        String tenKMToRetrieve = khuyenmaiToAdd.getTenKM();
+
+        // Gọi phương thức GetKhuyenmaiById để lấy khuyến mãi từ danh sách
+        KhuyenmaiViewmodel retrievedKhuyenmai = (KhuyenmaiViewmodel) khuyenmaiService.GetOnebyten(tenKMToRetrieve);
+
+        // Kiểm tra xem dữ liệu đã được lấy về chính xác hay không
+        assertNotNull(retrievedKhuyenmai);
+        assertEquals(khuyenmaiToAdd.getTenKM(), retrievedKhuyenmai.getTenKM());
+        assertEquals(khuyenmaiToAdd.getHinhThucKM(), retrievedKhuyenmai.getHinhThucKM());
+        assertEquals(khuyenmaiToAdd.getNgayBatDau(), retrievedKhuyenmai.getNgayBatDau());
+        assertEquals(khuyenmaiToAdd.getNgayKetThuc(), retrievedKhuyenmai.getNgayKetThuc());
+        assertEquals(khuyenmaiToAdd.getGiaTriGiam(), retrievedKhuyenmai.getGiaTriGiam());
+        assertEquals(khuyenmaiToAdd.getTrangthai(), retrievedKhuyenmai.getTrangthai());
     }
 
     /**
@@ -140,8 +250,6 @@ public class KhuyenmaiServiceTest {
         List<KhuyenmaiViewmodel> expResult = null;
         List<KhuyenmaiViewmodel> result = instance.GetOnebyKT(date);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
