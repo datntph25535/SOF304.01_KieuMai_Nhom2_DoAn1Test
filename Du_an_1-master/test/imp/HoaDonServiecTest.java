@@ -85,8 +85,29 @@ public class HoaDonServiecTest {
             e.printStackTrace();
             fail("Xảy ra lỗi ngoại lệ: " + e.getClass().getSimpleName());
         }
-
-
-
     }
+    
+     @Test
+    public void testDeleteSanPham() {
+        int idHD = 1;
+        int idSP = 2;
+
+        HoaDonServiec hoaDonService = new HoaDonServiec();
+        Integer expected = 1; // Giá trị kết quả mong đợi
+        Integer result = hoaDonService.deleteSanPham(idHD, idSP);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testUpdateSoLuongGioHang() {
+        int soLuong = 5;
+        String maSP = "SP1";
+        String maHD = "HD001";
+
+        HoaDonServiec hoaDonService = new HoaDonServiec();
+        Integer expected = 1; // Giá trị kết quả mong đợi
+        Integer result = hoaDonService.updateSoLuongGioHang(soLuong, maSP, maHD);
+        assertEquals(expected, result);
+    }
+    
 }
