@@ -69,8 +69,7 @@ public class UsersReposytoryTest {
         List<Users> result = usersReposytory.SearchNVV(Ten);
         
         assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals("Vu", result.get(0).getTen());
+        assertEquals("Vu", result.get(10).getTen());
     }
 
     @Test

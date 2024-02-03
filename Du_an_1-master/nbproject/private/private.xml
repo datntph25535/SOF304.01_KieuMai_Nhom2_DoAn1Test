@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Banhang.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Khachhang.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Sanpham.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Thongke.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/KhachHangForm.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Dashboard.java</file>
-            <file>file:/C:/Users/admin/Documents/GitHub/Du_an_1/src/views/frm_Nhanvien.java</file>
+            <file>file:/D:/Study/KTNC/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/models/UsersTest.java</file>
+            <file>file:/D:/Study/KTNC/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/models/TestRunner.java</file>
+            <file>file:/D:/Study/KTNC/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/models/Users.java</file>
+            <file>file:/D:/Study/KTNC/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/repositorys/imp/UsersReposytory.java</file>
+            <file>file:/D:/Study/KTNC/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/repositorys/imp/UsersReposytoryTest.java</file>
         </group>
     </open-files>
 </project-private>
