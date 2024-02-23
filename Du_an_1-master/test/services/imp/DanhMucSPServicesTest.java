@@ -4,12 +4,9 @@
  */
 package services.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 import models.DanhMucSP;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import viewmodels.Objecttt;
@@ -20,85 +17,74 @@ import viewmodels.Objecttt;
  */
 public class DanhMucSPServicesTest {
     
-    public DanhMucSPServicesTest() {
-    }
+    DanhMucSPServices services = new DanhMucSPServices();
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getAll method, of class DanhMucSPServices.
-     */
     @Test
     public void testGetAll() {
-        System.out.println("getAll");
-        DanhMucSPServices instance = new DanhMucSPServices();
-        List<DanhMucSP> expResult = instance.getAll();
-        List<DanhMucSP> result = instance.getAll();
+        // Tạo danh sách các đối tượng ChatLieu giả định
+        List<DanhMucSP> expectedList = new ArrayList<>();
+        expectedList.add(new DanhMucSP("Giày da"));
+        expectedList.add(new DanhMucSP("Giày thể thao"));
+
+        // Lấy danh sách thực tế từ phương thức getAll()
+        List<DanhMucSP> actualList = services.getAll();
+
+        // Kiểm tra độ dài của hai danh sách
+        assertEquals(expectedList.size(), actualList.size());
+
+        // So sánh từng phần tử của hai danh sách
+        for (int i = 0; i < expectedList.size(); i++) {
+            DanhMucSP expected = expectedList.get(i);
+            DanhMucSP actual = actualList.get(i);
+            assertEquals(expected.getTen(), actual.getTen());
+        }
+    }
+
+    @Test
+    public void testAddKhiNhapDuDuLieu() {
+        Objecttt x = new Objecttt("Giày bata");
+        String expResult = services.Add(x);
+        String result = "Thành công";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of Add method, of class DanhMucSPServices.
-     */
     @Test
-    public void testAdd() {
-        System.out.println("Add");
-        Objecttt x = new Objecttt(1, "Ao khoac");
-        DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = instance.Add(x);
-        String result = instance.Add(x);
-        assertEquals(expResult, result);
-    }
-    
-    @Test
-    public void testUpdate() {
-        System.out.println("Update");
-        Objecttt x = new Objecttt(1, "Ao khoac");
-        int id = 0;
-        DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = instance.Update(x, id);
-        String result = instance.Update(x, id);
+    public void testAddKhiNhapThieuTen() {
+        Objecttt x = new Objecttt(null);
+        String expResult = services.Add(x);
+        String result = "Thất bại";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of Delete method, of class DanhMucSPServices.
-     */
     @Test
-    public void testDelete() {
-        System.out.println("Delete");
-        int id = 0;
-        DanhMucSPServices instance = new DanhMucSPServices();
-        String expResult = instance.Delete(id);
-        String result = instance.Delete(id);
+    public void testUpdateKhiNhapDuDuLieu() {
+        Objecttt x = new Objecttt(3, "Giày bata");
+        String expResult = services.Update(x, x.getId());
+        String result = "Thành công";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of getbyid method, of class DanhMucSPServices.
-     */
     @Test
-    public void testGetbyid() {
-        System.out.println("getbyid");
-        int id = 0;
-        DanhMucSPServices instance = new DanhMucSPServices();
-        DanhMucSP expResult = instance.getbyid(id);
-        DanhMucSP result = instance.getbyid(id);
+    public void testUpdateKhiNhapThieuTen() {
+        Objecttt x = new Objecttt(6, null);
+        String expResult = services.Update(x, x.getId());
+        String result = "Thất bại";
         assertEquals(expResult, result);
     }
-    
+
+    @Test
+    public void testDeleteKhiCoTonTaiID() {
+        Objecttt x = new Objecttt(3);
+        String expResult = services.Delete(x.getId());
+        String result = "Thành công";
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDeleteKhiKhongTonTaiID() {
+        Objecttt x = new Objecttt(20);
+        String expResult = services.Delete(x.getId());
+        String result = "Thất bại";
+        assertEquals(expResult, result);
+    }
 }

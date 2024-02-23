@@ -4,6 +4,7 @@
  */
 package services.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 import models.NSX;
 import org.junit.After;
@@ -20,88 +21,74 @@ import viewmodels.Objecttt;
  */
 public class NSXServicesTest {
     
-    public NSXServicesTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    NSXServices services = new NSXServices();
 
-    /**
-     * Test of getAll method, of class NSXServices.
-     */
     @Test
     public void testGetAll() {
-        System.out.println("getAll");
-        NSXServices instance = new NSXServices();
-        List<NSX> expResult = instance.getAll();
-        List<NSX> result = instance.getAll();
+        // Tạo danh sách các đối tượng ChatLieu giả định
+        List<NSX> expectedList = new ArrayList<>();
+        expectedList.add(new NSX("NSX1"));
+        expectedList.add(new NSX("NSX2"));
+
+        // Lấy danh sách thực tế từ phương thức getAll()
+        List<NSX> actualList = services.getAll();
+
+        // Kiểm tra độ dài của hai danh sách
+        assertEquals(expectedList.size(), actualList.size());
+
+        // So sánh từng phần tử của hai danh sách
+        for (int i = 0; i < expectedList.size(); i++) {
+            NSX expected = expectedList.get(i);
+            NSX actual = actualList.get(i);
+            assertEquals(expected.getTen(), actual.getTen());
+        }
+    }
+
+    @Test
+    public void testAddKhiNhapDuDuLieu() {
+        Objecttt x = new Objecttt("NSX3");
+        String expResult = services.Add(x);
+        String result = "Thành công";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of Add method, of class NSXServices.
-     */
     @Test
-    public void testAdd() {
-        System.out.println("Add");
-        Objecttt x = new Objecttt(0, "Gucci");
-        NSXServices instance = new NSXServices();
-        String expResult = instance.Add(x);
-        String result = instance.Add(x);
+    public void testAddKhiNhapThieuTen() {
+        Objecttt x = new Objecttt(null);
+        String expResult = services.Add(x);
+        String result = "Thất bại";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of Update method, of class NSXServices.
-     */
     @Test
-    public void testUpdate() {
-        System.out.println("Update");
-        Objecttt x = new Objecttt(0, "Gucci");
-        int id = 0;
-        NSXServices instance = new NSXServices();
-        String expResult = instance.Update(x, id);
-        String result = instance.Update(x, id);
+    public void testUpdateKhiNhapDuDuLieu() {
+        Objecttt x = new Objecttt(3, "NSX3");
+        String expResult = services.Update(x, x.getId());
+        String result = "Thành công";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of Delete method, of class NSXServices.
-     */
     @Test
-    public void testDelete() {
-        System.out.println("Delete");
-        int id = 0;
-        NSXServices instance = new NSXServices();
-        String expResult = instance.Delete(id);
-        String result = instance.Delete(id);
+    public void testUpdateKhiNhapThieuTen() {
+        Objecttt x = new Objecttt(3, null);
+        String expResult = services.Update(x, x.getId());
+        String result = "Thất bại";
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of getbyid method, of class NSXServices.
-     */
     @Test
-    public void testGetbyid() {
-        System.out.println("getbyid");
-        int id = 0;
-        NSXServices instance = new NSXServices();
-        NSX expResult = instance.getbyid(id);
-        NSX result = instance.getbyid(id);
+    public void testDeleteKhiCoTonTaiID() {
+        Objecttt x = new Objecttt(3);
+        String expResult = services.Delete(x.getId());
+        String result = "Thành công";
         assertEquals(expResult, result);
     }
-    
+
+    @Test
+    public void testDeleteKhiKhongTonTaiID() {
+        Objecttt x = new Objecttt(20);
+        String expResult = services.Delete(x.getId());
+        String result = "Thất bại";
+        assertEquals(expResult, result);
+    }
 }

@@ -15,6 +15,10 @@ public class DanhMucSP {
     public DanhMucSP() {
     }
 
+    public DanhMucSP(String ten) {
+        this.ten = ten;
+    }
+
     public DanhMucSP(int id, String ten) {
         this.id = id;
         this.ten = ten;

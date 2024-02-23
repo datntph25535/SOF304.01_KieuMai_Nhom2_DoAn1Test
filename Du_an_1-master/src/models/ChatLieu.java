@@ -15,6 +15,10 @@ public class ChatLieu {
     public ChatLieu() {
     }
 
+    public ChatLieu(String Ten) {
+        this.Ten = Ten;
+    }
+
     public ChatLieu(int id, String Ten) {
         this.id = id;
         this.Ten = Ten;

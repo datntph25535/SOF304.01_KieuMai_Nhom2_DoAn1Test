@@ -16,6 +16,10 @@ public class NSX {
     public NSX() {
     }
 
+    public NSX(String ten) {
+        this.ten = ten;
+    }
+
     public NSX(int id, String ten) {
         this.id = id;
         this.ten = ten;

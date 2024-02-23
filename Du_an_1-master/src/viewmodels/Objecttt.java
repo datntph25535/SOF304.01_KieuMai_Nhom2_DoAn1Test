@@ -15,6 +15,14 @@ public class Objecttt {
     public Objecttt() {
     }
 
+    public Objecttt(int id) {
+        this.id = id;
+    }
+    
+    public Objecttt(String ten) {
+        this.ten = ten;
+    }
+
     public Objecttt(int id, String ten) {
         this.id = id;
         this.ten = ten;

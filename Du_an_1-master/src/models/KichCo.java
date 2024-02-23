@@ -20,6 +20,10 @@ public class KichCo {
         this.Ten = Ten;
     }
 
+    public KichCo(String Ten) {
+        this.Ten = Ten;
+    }
+
     public String getTen() {
         return Ten;
     }
