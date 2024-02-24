@@ -53,10 +53,21 @@ public class KhuyenmaiServiceTest {
     }
 
     @Test
-    public void testThemMoi() {
+    public void testThemMoiThanhCong() {
         System.out.println("Thêm mới 1 khuyến mãi thành công");
         KhuyenmaiViewmodel khuyenmai = new KhuyenmaiViewmodel("hhh", "%", "2024-02-23", "2024-02-28", 15.0, 1);
         boolean expectResult = service.Add(khuyenmai);
+        boolean result = service.Add(khuyenmai);
+
+        assertEquals(expectResult, result);
+    }
+
+    @Test
+    public void testThemMoiThatBaiNhapLieuSai() {
+        System.out.println("Thêm mới 1 khuyến mãi thất bại do nhập liệu sai");
+
+        KhuyenmaiViewmodel khuyenmai = new KhuyenmaiViewmodel("hhh", "%", "2024-02-23", "2024-02-20", 15.0, 1);
+        boolean expectResult = false;
         boolean result = service.Add(khuyenmai);
 
         assertEquals(expectResult, result);
@@ -201,7 +212,6 @@ public class KhuyenmaiServiceTest {
         return !tenKM.matches(".*[!@#$%^&*()_+{}|<>?`~].*");
     }
 
-
     @Test
     public void testUpdateTenKhuyenMai() {
         System.out.println("Chỉ cập nhật tên khuyến mãi");
@@ -241,7 +251,6 @@ public class KhuyenmaiServiceTest {
         assertEquals(100.0, khuyenmai.getGiaTriGiam(), 0.001);
     }
 
-
     @Test
     public void testUpdateTrangThai() {
         System.out.println("Cập nhật trạng thái 1 khuyến mãi");
@@ -261,6 +270,7 @@ public class KhuyenmaiServiceTest {
 
     @Test
     public void testDeleteAllKhuyenMai() {
+        System.out.println("Xóa toàn bộ khuyến mãi");
         List<KhuyenmaiViewmodel> danhSachKhuyenMai = new ArrayList<>();
 
         danhSachKhuyenMai.add(new KhuyenmaiViewmodel("TenKM1", "HinhThuc", "2022-01-01", "2022-02-01", 10.0, 1));
@@ -272,6 +282,7 @@ public class KhuyenmaiServiceTest {
 
     @Test
     public void testXoaKhuyenMaiHoatDong() {
+        System.out.println("Xóa khuyến mãi đang hoạt động");
         KhuyenmaiViewmodel khuyenmai = new KhuyenmaiViewmodel("TenKM", "HinhThuc", "2022-01-01", "2022-02-01", 10.0, 1);
         assertNotNull(khuyenmai);
         assertEquals(1, khuyenmai.getTrangthai());
@@ -281,6 +292,7 @@ public class KhuyenmaiServiceTest {
 
     @Test
     public void testXoaKhuyenMaiKhongHoatDong() {
+        System.out.println("Xóa khuyến mãi không hoạt động");
         KhuyenmaiViewmodel khuyenmai = new KhuyenmaiViewmodel("TenKM", "HinhThuc", "2022-01-01", "2022-02-01", 10.0, 0);
         assertNotNull(khuyenmai);
         assertEquals(0, khuyenmai.getTrangthai());
@@ -358,8 +370,6 @@ public class KhuyenmaiServiceTest {
         assertTrue(result.isEmpty());
     }
 
-    
-
     @Test
     public void testTimKiemSaiKeyword() {
         List<KhuyenmaiViewmodel> danhSachKhuyenMai = new ArrayList<>();
@@ -374,11 +384,7 @@ public class KhuyenmaiServiceTest {
         return new ArrayList<>();
     }
 
-    
     // Code mặc định của file service
-    
-    
-    
     /**
      * Test of GetALL method, of class KhuyenmaiService.
      */
