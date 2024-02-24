@@ -5,6 +5,8 @@
         <group>
             <file>file:/D:/OneDrive/Documents/GitHub/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/views/frm_Khuyenmai.java</file>
             <file>file:/D:/OneDrive/Documents/GitHub/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/viewmodels/KhuyenmaiViewmodel.java</file>
+            <file>file:/D:/OneDrive/Documents/GitHub/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/src/services/imp/KhuyenmaiService.java</file>
+            <file>file:/D:/OneDrive/Documents/GitHub/SOF304.01_KieuMai_Nhom2_DoAn1Test/Du_an_1-master/test/services/imp/KhuyenmaiServiceTest.java</file>
         </group>
     </open-files>
 </project-private>
