@@ -97,7 +97,7 @@ public class KichCoServicesTest {
     @Test
     public void testGetbyid() {
         System.out.println("getbyid");
-        int id = 0;
+        int id = 1;
         KichCoServices instance = new KichCoServices();
         KichCo expResult = instance.getbyid(id);
         KichCo result = instance.getbyid(id);

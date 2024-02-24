@@ -13,6 +13,7 @@ import models.Chucvu;
  */
 public class UsersViewmodel {
 
+    private String id;
     private String ten, tendem, ho;
     private String ngaysinh;
     private Integer gioitinh;
@@ -132,4 +133,13 @@ public class UsersViewmodel {
         return gt == 1 ? "Nam" : "Nữ";
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    
 }
